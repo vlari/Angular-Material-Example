@@ -1,0 +1,19 @@
+mat-radio-button{
+  padding-bottom: 17.5px;
+} 
+
+mat-card-content{
+  margin-top:15px;
+}
+
+.purple-color{
+  color:#732673;
+}
+
+.font-bold{
+  font-weight: bold;
+}
+
+.row-full{
+  width: 100%;
+}

@@ -1,0 +1,109 @@
+<div class="container">
+  <mat-card>
+    <mat-card-title><h2 class="purple-color">Choose your flight</h2></mat-card-title>
+    <mat-card-subtitle><h4><i class="material-icons calendar">date_range</i>Flights {{ myHead.departureDate }} To {{ myHead.arrivalDate }}</h4></mat-card-subtitle>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <form #flightForm (ngSubmit)="onSubmit()">
+        <div class="row main-row">
+          <div class="col-md-6 col-sm-12 col-xs-12">
+            <h2 style="margin-top:10px;">Departing flights•</h2>
+            <mat-form-field>
+              <mat-select placeholder="Departuring date" #departure (change)="updateDeparture(departure.value)">
+                <mat-option *ngFor="let dflight of departureFlights" [value]="dflight">
+                    {{ dflight.departingTime}} - {{ dflight.returningTime }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-card class="flight-display">
+              <mat-card-title>{{ forFlight.departingTime }} - {{ forFlight.returningTime }}</mat-card-title>
+              <mat-card-content>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="box">
+                      <h4>{{ forFlight.initial.departure }}<i class="material-icons">arrow_forward</i>{{ forFlight.initial.destination }}</h4>
+                      <p class="display-inline"><i class="material-icons">airplanemode_active</i>{{ forFlight.plane }}</p>
+                      <span>|</span>
+                      <p class="display-inline">{{ forFlight.gate }}</p>
+                      <p class="display-inline"><i class="material-icons">airline_seat_recline_extra</i>{{ forFlight.seats }}</p>
+                      <span>|</span>
+                      <p class="display-inline">Duration <span class="hour-container">{{ forFlight.duration }}</span></p>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-12 col-xs-12">
+                    <div class="box">
+                      <h3 class="bold-font middle-xs center-xs">Price</h3>
+                      <div class="price-container center-xs middle-xs">{{ forFlight.price | currency }}</div>
+                    </div>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+          <div class="col-md-6 col-sm-12 col-xs-12">
+            <h2 style="margin-top:10px;">Returning flights•</h2>
+            <mat-form-field>
+                <mat-select placeholder="Returning date" #returning (change)="updateReturn(returning.value)">
+                  <mat-option *ngFor="let rflight of returningFlights" [value]="rflight">
+                      {{ rflight.departingTime}} - {{ rflight.returningTime }}
+                  </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-card class="flight-display">
+              <mat-card-title>{{ toFlight.departingTime }} - {{ toFlight.returningTime }}</mat-card-title>
+              <mat-card-content>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="box">
+                      <h4>{{ toFlight.initial.destination }}<i class="material-icons">arrow_forward</i> {{ toFlight.initial.departure }}</h4>
+                      <p class="display-inline"><i class="material-icons">airplanemode_active</i>{{ toFlight.plane }}</p>
+                      <span>|</span>
+                      <p class="display-inline">{{ toFlight.gate }}</p>
+                      <p class="display-inline"><i class="material-icons">airline_seat_recline_extra</i>{{ toFlight.seats }}</p>
+                      <span>|</span>
+                      <p class="display-inline">Duration <span class="hour-container">{{ toFlight.duration }}</span></p>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-12 col-xs-12">
+                    <div class="box">
+                      <h3 class="bold-font middle-xs center-xs">Price</h3>
+                      <div class="price-container center-xs middle-xs">{{ toFlight.price | currency }}</div>
+                    </div>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+
+        <div class="row details-row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="box">
+              <mat-card>
+                <mat-card-title><h2 class="purple-color bold-font">Your itinerary•</h2></mat-card-title>
+                  <mat-card-content>
+                    <p style="margin-bottom:50px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam rhoncus interdum dui, nec dignissim mauris euismod nec. Nullam tincidunt dapibus gravida. Sed congue at magna in varius. </p>
+                    <div class="estimated">
+                      <p>Amount{{ toFlight.price + forFlight.price | currency }}</p>
+                      <p>Tax 0.00</p>
+                      <mat-divider></mat-divider>
+                      <p>Total 0.00</p>
+                    </div>
+                  </mat-card-content>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 col-xs-12">
+            <div class="box">
+              <button type="submit" mat-raised-button color="primary" class="btn-submit">Continue</button>
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

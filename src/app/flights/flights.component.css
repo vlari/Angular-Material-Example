@@ -1,0 +1,53 @@
+.display-inline{
+  display: inline;
+}
+
+.price-container{
+  border: 0px solid #000000;
+  padding:10px;
+  border-radius: 3px;
+  background-color:#ffd740;
+  font-weight: bold;
+  color:#000;
+}
+
+.bold-font{
+  font-weight: bold;
+}
+
+.hour-container{
+  border-radius: 6px;
+  background-color: #ffd740;
+  padding: 3px;
+  color:#000;
+  font-weight: bold;
+}
+
+div.row.main-row,.details-row{
+  margin-top: 30px;
+}
+
+mat-card .flight-display{
+  background-color:#732673;
+  color:#FFFFFF;
+}
+
+i.material-icons.calendar{
+  color:#732673;
+}
+
+.purple-color{
+  color:#732673;
+}
+
+.estimated{
+  margin-top: -30px;
+  color:#732673;
+  font-size: 20px;
+}
+
+.btn-submit{
+  font-size: 20px;
+  margin-top: 20px;
+  float: right;
+}

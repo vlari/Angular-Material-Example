@@ -1,0 +1,37 @@
+.payment-methods{
+  margin-top: 18px;
+}
+
+mat-radio-button{
+  display: block;
+  margin-bottom: 18px;
+}
+
+.center-par{
+  margin: 0px;
+  padding: 10px 0px 10px 0px;
+}
+
+.mat-divider{
+  margin-top: -5px;
+}
+
+h2{
+  margin-top: 15px;
+}
+
+.btn-payment{
+  margin-top: 20px;
+}
+
+.font-bold{
+  font-weight: bold;
+}
+
+.purple-color{
+  color:#732673;
+}
+
+.margin-top-10{
+  margin-top: 10px;
+}

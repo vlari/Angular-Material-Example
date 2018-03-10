@@ -1,0 +1,124 @@
+<div class="container">
+  <mat-card>
+    <mat-card-title>Traveler Information</mat-card-title>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <h3>Traveler details</h3>
+      <p>* Indicates a required field</p>
+      <h4>TSA Secure Flight</h4>
+      <p>The name of travelers should be entered as they appear on government issued forms of identification. The primary traveler will be contacted in the case of any service
+        changes and will receive any credits for cancelled or changed flights.</p>
+      <mat-divider></mat-divider>
+      <i class="material-icons" style="font-size:50px;">assignment_ind</i>
+      <form #travelerForm (ngSubmit)="onSubmit()">
+        <div class="travel-info" *ngFor="let traveler of travelers">
+          
+          <div class="row">
+            <div class="col-md-10 col-sm-6 col-xs-12">
+              <div class="box">
+              <div class="row">
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                  <div class="box">
+                    <mat-form-field>
+                      <input matInput placeholder="First name" class="margin-right" [(ngModel)]="traveler.firstName" #name="ngModel"  name="fName" required>
+                    </mat-form-field>
+                        <!-- <div *ngIf="name.invalid && (name.dirty || name.touched)">
+                          <div *ngIf="name.errors.required">
+                            <mat-chip color="warn" selected="true">You must type a name</mat-chip>
+                          </div>
+                        </div> -->
+                    <mat-form-field>
+                      <input matInput placeholder="Middle name">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input matInput placeholder="Last name" [(ngModel)]="traveler.lastName" name="lName">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                  <div class="box">
+                    <mat-form-field>
+                        <mat-select placeholder="Document type" #docuType (change)="setDocumentType(traveler,docuType.value)">
+                          <mat-option *ngFor="let documentType of documentTypes" [value]="documentType">
+                            {{ documentType }}
+                          </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input matInput placeholder="Document number" [(ngModel)]="traveler.documentNumber" name="docuNumber">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="row">
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="box">
+                      <label>Gender:</label>
+                        <mat-radio-group>
+                          <mat-radio-button value="male" #vMale (change)="setGender(traveler,vMale.value)">Male</mat-radio-button>
+                          <mat-radio-button value="female" #vFemale (change)="setGender(traveler,vFemale.value)">Female</mat-radio-button>
+                        </mat-radio-group>
+                      <mat-form-field>
+                        <input matInput [matDatepicker]="dpicker" placeholder="Date of birth" [(ngModel)]="traveler.dateOfBirth" name="dateBirth" disabled>
+                        <mat-datepicker-toggle matSuffix [for]="dpicker"></mat-datepicker-toggle>
+                        <mat-datepicker #dpicker disabled="false"></mat-datepicker>
+                      </mat-form-field>
+                    </div>
+                  </div>
+              </div>
+              
+              <div class="row">
+                  <div class="col-md-8 col-sm-6 col-xs-12">
+                    <div class="box">
+                      <mat-form-field>
+                        <input matInput placeholder="Address" [(ngModel)]="traveler.address" name="addr">
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput placeholder="City" [(ngModel)]="traveler.city" name="city">
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput placeholder="Country" [(ngModel)]="traveler.country" name="country">
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput placeholder="Zipcode">
+                      </mat-form-field>
+                    </div>
+                  </div>
+              </div>
+              
+              <div class="row">
+                  <div class="col-md-8 col-sm-6 col-xs-12">
+                    <div class="box">
+                      <mat-form-field>
+                        <input matInput placeholder="Email" [(ngModel)]="traveler.email" name="email">
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput placeholder="Confirm Email">
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput placeholder="Primary phone" [(ngModel)]="traveler.primaryPhone" name="primaryPhone">
+                      </mat-form-field>
+                    </div>
+                  </div>
+              </div>
+            
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 col-xs-12">
+            <div class="box">
+              <button type="submit" mat-raised-button color="primary">Countinue</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

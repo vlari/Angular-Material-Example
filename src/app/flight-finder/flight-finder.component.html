@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="row middle-xs center-xs">
+    <div class="col-md-8 col-sm-12">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title><h3 class="purple-color font-bold">Find Your Flight</h3></mat-card-title>
+          <mat-card-subtitle><h4>flights</h4></mat-card-subtitle>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content>
+          <form #myForm (ngSubmit)="onSubmit(); myForm.reset()">
+            <div class="row">
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="row middle-xs center-xs" style="margin-top:20px;">
+                  <div class="col-md-12 col-sm-12">
+                    <div class="box">
+                      <mat-radio-group>
+                        <mat-radio-button value="1">Roudtrip</mat-radio-button>
+                        <mat-radio-button value="2">One-way</mat-radio-button>
+                      </mat-radio-group>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-8 col-sm-6 col-xs-12">
+                    <div class="box">
+                      <mat-form-field>
+                        <mat-select placeholder="Passengers" #pNumber (change)="setPassenger(pNumber.value)">
+                          <mat-option *ngFor="let passenger of passengers" [value]="passenger">
+                            {{ passenger }}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-8 col-sm-6 col-xs-12">
+                <div class="row middle-xs center-xs">
+                  <div class="col-md-6">
+                    <mat-form-field>
+                        <mat-select placeholder="From" #departure (change)="setDeparture(departure.value)">
+                          <mat-option *ngFor="let destination of destinations" [value]="destination">
+                            {{ destination }}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-6 col-sm-6">
+                    <mat-form-field>
+                      <mat-select placeholder="destination" #destination (change)="setDestination(destination.value)">
+                        <mat-option *ngFor="let destination of destinations" [value]="destination">
+                          {{ destination }}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>  
+                  </div>
+                </div>
+                <div class="row middle-xs center-xs">
+                  <div class="col-md-6 col-sm-6">
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="dpicker" placeholder="Depart date" [(ngModel)]="dDate" name="ddate">
+                        <mat-datepicker-toggle matSuffix [for]="dpicker"></mat-datepicker-toggle>
+                        <mat-datepicker #dpicker></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-6">
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="rpicker" placeholder="Return date" [(ngModel)]="rDate" name="rdate">
+                        <mat-datepicker-toggle matSuffix [for]="rpicker"></mat-datepicker-toggle>
+                        <mat-datepicker #rpicker></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>    
+            <button type="submit" mat-raised-button color="primary">Find it</button>
+          </form>
+        </mat-card-content>
+      </mat-card>  
+    </div>
+  </div>
+</div>
+
+
